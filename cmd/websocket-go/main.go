@@ -5,14 +5,15 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-var addr = "localhost:8080"
+var addr = "192.168.16.101:8080"
 
 func main() {
-	swSrv := wsserver.NewWsServer(addr)
+	wsSrv := wsserver.NewWsServer(addr)
 	log.Info(
 		"Server running: http://", addr,
 	)
-	err := swSrv.Start()
+
+	err := wsSrv.Start()
 	if err != nil {
 		log.Fatalf("Error: %v", err)
 	}
